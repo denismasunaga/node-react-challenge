@@ -12,8 +12,8 @@ export const checkJwt = (req: Request, res: Response, next: NextFunction) => {
         jwtPayload = <any>jwt.verify(token, config.jwtSecret)
         res.locals.jwtPayload = jwtPayload
     } catch (error) {
-        console.log(error)
-        res.status(401).send()
+        // console.log(error)
+        res.status(401).send({ message: 'Session expired. Please login again to proceed.' })
         return
     }
 

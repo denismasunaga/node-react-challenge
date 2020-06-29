@@ -1,6 +1,7 @@
-import {Model, STRING, UUID, VIRTUAL} from 'sequelize'
+import {Model, STRING, VIRTUAL} from 'sequelize'
 import sequelize from './_index'
 import * as bcrypt from 'bcrypt'
+import {StringCalc} from "./stringCalc";
 
 export class User extends Model {
     id: string
@@ -30,4 +31,8 @@ User.addHook('beforeSave', async (user: User): Promise<void> => {
     if (user.password) {
         user.passwordHash = await bcrypt.hash(user.password, 10)
     }
+})
+
+User.hasMany(StringCalc, {
+    foreignKey: 'stringCalcId'
 })

@@ -17,9 +17,6 @@ export async function create(user: any): Promise<any> {
         console.log(error)
         return Promise.reject('Could not create new user.')
     }
-
-
-
 }
 
 export function findAll(): Promise<any> {
@@ -45,5 +42,4 @@ export async function findByEmail(email: string): Promise<any> {
         console.log(error)
         return Promise.reject('Error looking for User.')
     }
-
 }
