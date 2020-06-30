@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Login.css";
 import AuthenticationService from "../../services/Authentication/Authentication";
+import { useHistory, Redirect } from 'react-router-dom';
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
     let auth = new AuthenticationService();
 
     function validateForm() {
@@ -16,13 +18,16 @@ export default function Login() {
         event.preventDefault();
 
         try {
-            const jwt = await auth.doLogin(email, password)
-            console.log(jwt);
+            await auth.doLogin(email, password)
+            history.push('/home')
+
         } catch (error) {
             throw error
         }
 
     }
+
+    if (auth.isAuthenticated()) return <Redirect to='/home' />
 
     return (
         <div className="Login">

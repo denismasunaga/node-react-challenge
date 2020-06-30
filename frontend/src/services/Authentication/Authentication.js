@@ -1,4 +1,6 @@
 import axios from 'axios'
+import React from "react";
+import { Redirect } from "react-router-dom/";
 
 export default class AuthenticationService {
     constructor () {
@@ -10,10 +12,24 @@ export default class AuthenticationService {
             const token = await this.http.post(
                 `/login`,
                 { email: email, password: password })
-
-            return token
+            this.setToken(token.data['token'])
+            return <Redirect to='/home' />
         } catch (error) {
             throw error
         }
     }
+
+    setToken(token) {
+        localStorage.setItem('@frontend/token', token);
+    }
+
+    deleteToken() {
+        localStorage.removeItem('@frontend/token')
+    }
+
+    isAuthenticated() {
+        return localStorage.getItem('@frontend/token') !== null
+    }
+
+
 }

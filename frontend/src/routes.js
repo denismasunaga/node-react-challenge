@@ -1,11 +1,16 @@
-import Login from 'views/Login/Login'
+import Login from 'frontend/src/pages/Login/Login'
+import Home from 'frontend/src/pages/Home/Home'
 
-var dashRoutes = [
+const routes = [
     {
-        path: '/login-page',
+        path: '/',
         name: 'Login Page',
-        component: Login,
-        layout: '/login'
+        component: Login
+    },
+    {
+        path: '/home',
+        name: 'Home Page',
+        component: Home
     },
 ]
-export default dashRoutes
+export default routes
