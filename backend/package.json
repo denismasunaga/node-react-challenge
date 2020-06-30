@@ -4,8 +4,8 @@
   "description": "Sample project with Express + Sequelize + Typescript",
   "homepage": "https://github.com/maximegris/typescript-express-sequelize",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Denis Hideo Masunaga",
+    "email": "denismasunaga@gmail.com"
   },
   "main": "build/src/server.js",
   "keywords": [
@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
+    "@types/cors": "^2.8.6",
     "@types/express-validator": "^3.0.0",
     "chai": "4.2.0",
     "extendify": "1.0.0",

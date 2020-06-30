@@ -21,9 +21,7 @@ export class Server {
     this.app = express()
 
     // Express middleware
-    this.app.use(cors({
-      optionsSuccessStatus: 200
-    }))
+    this.app.use(cors())
     this.app.use(urlencoded({
       extended: true
     }))

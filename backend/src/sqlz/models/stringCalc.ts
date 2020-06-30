@@ -18,6 +18,6 @@ StringCalc.init(
     { sequelize, modelName: 'StringCalc' }
 )
 
-StringCalc.belongsTo(User, {
-    foreignKey: 'userId'
-})
+// StringCalc.belongsTo(User, {
+//     foreignKey: 'userId'
+// })
